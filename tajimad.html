@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.Apple-tab-span {white-space:pre}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;SFS and Tajima's D&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 800px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 0 auto;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f0f8ff; /* Light blue background */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>textarea {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>width: 100%;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>height: 200px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>#output {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>white-space: pre-wrap;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #ffffff;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>box-shadow: 0 0 10px rgba(0,0,0,0.1);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.highlight {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #fffacd; /* Light yellow background */</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin: 10px 0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #4CAF50;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>padding: 10px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border: none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>border-radius: 5px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>cursor: pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>margin-top: 10px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>button:hover {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #45a049;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;SFS and Tajima's D Calculator&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Upload a CLUSTAL alignment file or paste the content below:&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;input type="file" id="fileInput"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="alignmentInput" placeholder="Paste your CLUSTAL alignment here..."&gt;&lt;/textarea&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="processAlignment()"&gt;Process Alignment&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="output"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function processAlignment() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let alignmentData = document.getElementById('alignmentInput').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>if (!alignmentData) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>alert("Please provide alignment data.");</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Remove the first line (CLUSTAL header) and the last line</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let lines = alignmentData.split(`\n`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>alignmentData = lines.slice(2, -1).join(`\n`);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let spaceCount = (alignmentData.match(/^[^\s]/gm) || []).length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let lineCount = alignmentData.split(`\n`).length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let x = lineCount - spaceCount;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let seqNumber = spaceCount / x;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let a = Math.floor(seqNumber);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let extractedData = alignmentData.split(`\n`).map(line =&gt; line.split(' ').pop());</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let result = extractedData.join(`\n`);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let alignmentLines = result.trim().split(`\n`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let indices = [];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let c = 0; c &lt; a; c++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 0; i &lt; x; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>indices.push((i * a + i) + c);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let combinedStrings = indices.map(index =&gt; alignmentLines[index]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>result = combinedStrings.join('');</span></p>
+<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let characterCount = result.length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let seqLength = Math.floor(characterCount / a);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function addNewline(text) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let formattedText = '';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const a = seqNumber;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const seql = seqLength</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let i = 0; i &lt; text.length; i += seql) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>formattedText += text.slice(i, i + seql) + '\n';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>return formattedText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let resultmod2 = addNewline(result);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Create alignment matrix</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let alignmentMatrix = resultmod2.split('\n').map(line =&gt; line.split(''));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>console.log(alignmentMatrix);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Compute SFS</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let sfs = computeSFS(alignmentMatrix);</span></p>
+<p class="p2"><span class="s1"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Compute Tajima's D</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let tajimaD = computeTajimaD(sfs);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let output = `Sequence number: ${seqNumber}\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>output += `Character count: ${characterCount}\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>output += `Sequence length: ${seqLength}\n\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>output += `&lt;div class="highlight"&gt;Site Frequency Spectrum (SFS):\n${sfs.join(', ')}&lt;/div&gt;\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>output += `&lt;div class="highlight"&gt;Tajima's D: ${tajimaD.toFixed(4)}&lt;/div&gt;\n\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>output += `Download output: &lt;a href="#" onclick="downloadAlignment()"&gt;Download&lt;/a&gt;`;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('output').innerHTML = output;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Save the output text for download</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let downloadText = `Sequence number: ${seqNumber}\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>downloadText += `Character count: ${characterCount}\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>downloadText += `Sequence length: ${seqLength}\n\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>downloadText += `Site Frequency Spectrum (SFS):\n${sfs.join(', ')}\n\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>downloadText += `Tajima's D: ${tajimaD.toFixed(4)}\n\n`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.getElementById('output').dataset.downloadText = downloadText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function computeSFS(alignment) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let numSequences = alignment.length;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let sfs = new Array(numSequences - 2).fill(0);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 0; i &lt; alignment[0].length; i++) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let column = alignment.map(row =&gt; row[i]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>let counts = {};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Count occurrences of each nucleotide</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let char of column) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (char !== '-') { // Exclude gaps</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>counts[char] = (counts[char] || 0) + 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update SFS for each allele count</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>for (let count of Object.values(counts)) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (count &gt; 1 &amp;&amp; count &lt; numSequences) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>sfs[count - 2]++;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return sfs;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function computeTajimaD(sfs) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let n = sfs.length + 1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let ss = sfs.reduce((a, b) =&gt; a + b, 0);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let a1 = Array.from({length: n-1}, (_, i) =&gt; 1 / (i + 1)).reduce((a, b) =&gt; a + b, 0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let a2 = Array.from({length: n-1}, (_, i) =&gt; 1 / ((i + 1) ** 2)).reduce((a, b) =&gt; a + b, 0);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let b1 = (n + 1) / (3 * (n - 1));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let b2 = 2 * (n**2 + n + 3) / (9 * n * (n - 1));</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let c1 = b1 - 1/a1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let c2 = b2 - (n + 2)/(a1 * n) + a2 / (a1**2);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let e1 = c1 / a1;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let e2 = c2 / (a1**2 + a2);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let Vd = e1 * ss + e2 * ss * (ss - 1);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let theta_pi = sfs.reduce((sum, freq, i) =&gt; sum + 2 * (i + 1) * (n - i - 1) * freq, 0) / (n * (n - 1));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let theta_w = ss / a1;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>return (theta_pi - theta_w) / Math.sqrt(Vd);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>function downloadAlignment() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let text = document.getElementById('output').dataset.downloadText;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>var element = document.createElement('a');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>element.setAttribute('download', "results.txt");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>element.style.display = 'none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.body.appendChild(element);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>element.click();</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>document.body.removeChild(element);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('fileInput').addEventListener('change', function(e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let file = e.target.files[0];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let reader = new FileReader();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>reader.onload = function(e) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('alignmentInput').value = e.target.result;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>reader.readAsText(file);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
