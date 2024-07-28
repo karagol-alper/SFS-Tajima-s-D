@@ -20,5 +20,9 @@ c) Variance V_D:
 VD = e_1S + e_2S(S-1)
 where e_1 and e_2 are complex functions of n derived in Tajima's original paper [1]. The implementation uses JavaScript to perform these calculations in the browser.
 
-# Please also cite:
+# Please cite:
 1)	Tajima, F. 1989. Statistical method for testing the neutral   mutation hypothesis by DNA polymorphism. Genetics 123:585-595.
+
+# Please also cite, if you used py or ipynb:
+Harris, C.R., Millman, K.J., van der Walt, S.J. et al. Array programming with NumPy. Nature 585, 357–362 (2020). DOI: 10.1038/s41586-020-2649-2.
+
