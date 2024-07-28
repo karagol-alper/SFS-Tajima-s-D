@@ -36,7 +36,7 @@ compute_SFS <- function(alignment) {
     return(sfs)
 }
 
-# Path to the alignment file
+# Path to the alignment file, change with your file in matrix array format, you can use the py scripts in the repository
 file <- "alignment.txt"
 
 # Read the alignment from the file
