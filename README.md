@@ -1,6 +1,6 @@
 # SFS-Tajima-s-D
 
-Tajima’s D is  a statistical test that compares the number of segregating sites to the average number of nucleotide differences [1]. It is used to test for neutrality in a population by determining if the observed DNA sequence variation is consistent with the neutral theory of evolution [5]. This can help detect different selection models. 
+Tajima’s D is  a statistical test that compares the number of segregating sites to the average number of nucleotide differences [1]. It is used to test for neutrality in a population by determining if the observed DNA sequence variation is consistent with the neutral theory of evolution [1]. This can help detect different selection models. 
 
 Tajima’s D = (π - θ_W) / sqrt(V_D)
 where:
