@@ -1,4 +1,4 @@
-# Function to read alignment from a text file
+# Function to read alignment from a text file the alignment file utilizes array format please convert it with AlntoMatrix tool or with .py files
 read_alignment <- function(file) {
     # Read the file line by line
     lines <- readLines(file)
